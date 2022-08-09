@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ToDoItem from "./ToDoItem";
 
-function ToDo() {
+function ToDo(props) {
+  const { isLogin } = props;
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const [toDoList, setToDoList] = useState([]);
@@ -15,7 +16,13 @@ function ToDo() {
     if (token === null) {
       navigate("/");
     }
-  }, []);
+  }, [isLogin]);
+
+  useEffect(() => {
+    if (!isLogin) {
+      navigate("/");
+    }
+  }, [isLogin]);
 
   const createTodo = () => {
     fetch(
@@ -38,20 +45,22 @@ function ToDo() {
 
   useEffect(() => {
     setIsUpdated(false);
-    fetch(
-      "https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/todos",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setToDoList(res);
-      });
+    if (token !== null) {
+      fetch(
+        "https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/todos",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((res) => {
+          setToDoList(res);
+        });
+    }
   }, [isUpdated]);
 
   return (

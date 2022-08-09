@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function LoginSignup() {
+function LoginSignup(props) {
+  const { setIsLogin } = props;
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -96,6 +97,7 @@ function LoginSignup() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token !== null) {
+      setIsLogin(true);
       navigate("/todo");
     }
   }, []);
@@ -109,6 +111,7 @@ function LoginSignup() {
           onChange={handleEmailInput}
           name="email"
           placeholder="이메일을 입력해주세요."
+          autoComplete="false"
         />
         <label htmlFor="password">패스워드</label>
         <input
@@ -117,6 +120,7 @@ function LoginSignup() {
           name="password"
           placeholder="이메일을 입력해주세요."
           type="password"
+          autoComplete="false"
         />
         <button disabled={!loginValid} onClick={login}>
           로그인
