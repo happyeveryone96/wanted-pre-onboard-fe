@@ -70,7 +70,7 @@ function ToDoItem(props) {
   return (
     <div className={css.container}>
       <li className={css.list}>
-        {toDo}
+        {!update && toDo}
         {update && (
           <input
             className={css.input}

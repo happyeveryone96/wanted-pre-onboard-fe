@@ -137,7 +137,7 @@ function LoginSignup(props) {
           로그인
         </button>
         <button
-          className={!loginValid && css.disabled}
+          className={!loginValid ? css.disabled : undefined}
           disabled={!loginValid}
           onClick={signup}
         >
