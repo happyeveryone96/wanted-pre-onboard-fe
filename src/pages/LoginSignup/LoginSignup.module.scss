@@ -1,0 +1,32 @@
+.container {
+  width: 100vw;
+  .email,
+  .password {
+    position: relative;
+    left: 80px;
+    min-width: 300px;
+    width: 40vw;
+    margin: 30px auto;
+  }
+  .input {
+    width: 25vw;
+    outline: 0;
+    padding: 4px;
+    margin: 0 10px;
+  }
+  button {
+    display: block;
+    width: 30vw;
+    height: 50px;
+    border-radius: 10px;
+    border: 0;
+    background-color: lightblue;
+    color: white;
+    margin: 30px auto;
+    cursor: pointer;
+  }
+  .disabled {
+    background-color: lightgray;
+    cursor: not-allowed;
+  }
+}

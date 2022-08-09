@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import css from "./LoginSignup.module.scss";
 
 function LoginSignup(props) {
   const { setIsLogin } = props;
@@ -103,29 +104,43 @@ function LoginSignup(props) {
   }, []);
 
   return (
-    <div>
+    <div className={css.container}>
       <form>
-        <label htmlFor="email">이메일</label>
-        <input
-          value={email}
-          onChange={handleEmailInput}
-          name="email"
-          placeholder="이메일을 입력해주세요."
-          autoComplete="false"
-        />
-        <label htmlFor="password">패스워드</label>
-        <input
-          value={password}
-          onChange={handlePwInput}
-          name="password"
-          placeholder="이메일을 입력해주세요."
-          type="password"
-          autoComplete="false"
-        />
-        <button disabled={!loginValid} onClick={login}>
+        <div className={css.email}>
+          <label htmlFor="email">이메일</label>
+          <input
+            className={css.input}
+            value={email}
+            onChange={handleEmailInput}
+            name="email"
+            placeholder="이메일을 입력해주세요."
+            autoComplete="off"
+          />
+        </div>
+        <div className={css.password}>
+          <label htmlFor="password">패스워드</label>
+          <input
+            className={css.input}
+            value={password}
+            onChange={handlePwInput}
+            name="password"
+            placeholder="이메일을 입력해주세요."
+            type="password"
+            autoComplete="off"
+          />
+        </div>
+        <button
+          className={!loginValid ? css.disabled : undefined}
+          disabled={!loginValid}
+          onClick={login}
+        >
           로그인
         </button>
-        <button disabled={!loginValid} onClick={signup}>
+        <button
+          className={!loginValid && css.disabled}
+          disabled={!loginValid}
+          onClick={signup}
+        >
           회원가입
         </button>
       </form>

@@ -2,7 +2,8 @@
   display: flex;
   margin: auto;
   padding: 30px;
-  width: 500px;
+  width: 30vw;
+  min-width: 300px;
   justify-content: space-around;
   .title {
     font-size: 30px;
