@@ -1,7 +1,7 @@
 import React from "react";
 
-function Todo() {
+function ToDo() {
   return <div>ToDo</div>;
 }
 
-export default Todo;
+export default ToDo;
