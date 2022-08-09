@@ -26,27 +26,31 @@ function ToDo(props) {
   }, [isLogin]);
 
   const createTodo = () => {
-    fetch(
-      "https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/todos",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          todo: toDo,
-        }),
-      }
-    )
-      .then((res) => res.json())
-      .then(setIsUpdated(true))
-      .then(setToDo(""));
+    if (toDo !== "") {
+      fetch(
+        "https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/todos",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            todo: toDo,
+          }),
+        }
+      )
+        .then((res) => res.json())
+        .then(setIsUpdated(true))
+        .then(setToDo(""));
+    } else {
+      alert("할 일을 입력해주세요!");
+    }
   };
 
   useEffect(() => {
     setIsUpdated(false);
-    if (token !== null) {
+    if (isLogin) {
       fetch(
         "https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/todos",
         {
