@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ToDoItem from "./ToDoItem";
+import css from "./ToDo.module.scss";
 
 function ToDo(props) {
   const { isLogin } = props;
@@ -64,9 +65,11 @@ function ToDo(props) {
   }, [isUpdated]);
 
   return (
-    <div>
-      <input value={toDo} onChange={handleToDo} />
-      <button onClick={createTodo}>추가</button>
+    <div className={css.container}>
+      <input className={css.input} value={toDo} onChange={handleToDo} />
+      <button className={css.btn} onClick={createTodo}>
+        추가
+      </button>
       {toDoList.map((toDo) => {
         return (
           <ToDoItem

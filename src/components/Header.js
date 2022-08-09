@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import css from "./Header.module.scss";
 
 function Header(props) {
   const { isLogin, setIsLogin } = props;
@@ -19,9 +20,13 @@ function Header(props) {
   }, [isLogin]);
 
   return (
-    <div>
-      <div>{isTodo ? "투두 리스트" : "환영합니다!"}</div>
-      {isTodo && <button onClick={logout}>로그아웃</button>}
+    <div className={css.container}>
+      <div className={css.title}>{isTodo ? "투두 리스트" : "환영합니다!"}</div>
+      {isTodo && (
+        <button className={css.logout} onClick={logout}>
+          로그아웃
+        </button>
+      )}
     </div>
   );
 }

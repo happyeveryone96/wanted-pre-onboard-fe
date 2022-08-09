@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import css from "./ToDoItem.module.scss";
 
 function ToDoItem(props) {
   const { id, toDo, isCompleted, setIsUpdated } = props;
@@ -67,10 +68,16 @@ function ToDoItem(props) {
   };
 
   return (
-    <div>
-      <li>
+    <div className={css.container}>
+      <li className={css.list}>
         {toDo}
-        {update && <input value={newToDo} onChange={handleTodoInput} />}
+        {update && (
+          <input
+            className={css.input}
+            value={newToDo}
+            onChange={handleTodoInput}
+          />
+        )}
         {update ? (
           <input
             type="checkbox"
@@ -84,11 +91,20 @@ function ToDoItem(props) {
             value={isCompletedTodo}
             checked={isCompletedTodo}
             readOnly
+            style={{ cursor: "not-allowed" }}
           />
         )}
-        <button onClick={updateBtn}>수정</button>
-        {update && <button onClick={cancelBtn}>취소</button>}
-        <button onClick={deleteTodo}>삭제</button>
+        <button className={css.updateBtn} onClick={updateBtn}>
+          수정
+        </button>
+        {update && (
+          <button className={css.cancelBtn} onClick={cancelBtn}>
+            취소
+          </button>
+        )}
+        <button className={css.deleteBtn} onClick={deleteTodo}>
+          삭제
+        </button>
       </li>
     </div>
   );

@@ -1,0 +1,20 @@
+.container {
+  width: 600px;
+  margin: auto;
+  .input {
+    width: 300px;
+    padding: 4px;
+    margin: 4px;
+    outline: none;
+  }
+  .btn {
+    color: white;
+    border: 0;
+    background-color: lightblue;
+    height: 25px;
+    margin: 30px;
+    width: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+}
