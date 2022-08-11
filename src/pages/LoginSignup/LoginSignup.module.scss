@@ -3,19 +3,26 @@
   .email,
   .password {
     position: relative;
-    left: 30px;
+    width: 30vw;
     min-width: 300px;
-    width: 40vw;
     margin: 30px auto;
+    label {
+      display: block;
+      margin: 10px 4px;
+      font-size: 12px;
+    }
   }
   .input {
-    width: 25vw;
+    min-width: 300px;
+    width: 29vw;
     outline: 0;
     padding: 4px;
-    margin: 0 10px;
+    border: 0;
+    border-bottom: 1px solid gray;
   }
   button {
     display: block;
+    min-width: 300px;
     width: 30vw;
     height: 50px;
     border-radius: 10px;

@@ -118,13 +118,13 @@ function LoginSignup(props) {
           />
         </div>
         <div className={css.password}>
-          <label htmlFor="password">패스워드</label>
+          <label htmlFor="password">비밀번호</label>
           <input
             className={css.input}
             value={password}
             onChange={handlePwInput}
             name="password"
-            placeholder="이메일을 입력해주세요."
+            placeholder="패스워드를 입력해주세요."
             type="password"
             autoComplete="off"
           />
