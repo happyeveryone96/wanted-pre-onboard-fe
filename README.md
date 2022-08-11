@@ -35,7 +35,7 @@ npm start
 - 회원가입 기능
 - 유효성 검사 기능
 - 로그인 여부에 따른 리다이렉트 처리 기능
-  <br>
+  <br><br>
 
 2. 투두 리스트
 
@@ -43,7 +43,7 @@ npm start
 - 추가 기능
 - 수정 기능
 - 삭제 기능
-  <br>
+  <br><br>
 
 3. 로그아웃 (추가 구현)<br>
    <img width="300" src="https://user-images.githubusercontent.com/66675699/184171716-24e3aefb-86ed-4e22-a3d2-5e054b19dadb.gif" alt="로그아웃"/>
