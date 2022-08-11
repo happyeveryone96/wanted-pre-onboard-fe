@@ -45,5 +45,5 @@ npm start
 - 삭제 기능
   <br>
 
-3. 로그아웃 (추가 구현)
-   <img src="https://user-images.githubusercontent.com/66675699/184171716-24e3aefb-86ed-4e22-a3d2-5e054b19dadb.gif" alt="로그아웃"/>
+3. 로그아웃 (추가 구현)<br>
+   <img width="300" src="https://user-images.githubusercontent.com/66675699/184171716-24e3aefb-86ed-4e22-a3d2-5e054b19dadb.gif" alt="로그아웃"/>
