@@ -5,26 +5,21 @@ import css from "./ToDo.module.scss";
 
 function ToDo(props) {
   const { isLogin } = props;
-  const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-  const [toDoList, setToDoList] = useState([]);
-  const [isUpdated, setIsUpdated] = useState(false);
+
   const [toDo, setToDo] = useState("");
   const handleToDo = (e) => {
     setToDo(e.target.value);
   };
+
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
   useEffect(() => {
-    if (token === null) {
+    if (!isLogin || token === null) {
       navigate("/");
     }
   }, [isLogin]);
 
-  useEffect(() => {
-    if (!isLogin) {
-      navigate("/");
-    }
-  }, [isLogin]);
-
+  const [isUpdated, setIsUpdated] = useState(false);
   const createTodo = () => {
     if (toDo !== "") {
       fetch(
@@ -48,6 +43,7 @@ function ToDo(props) {
     }
   };
 
+  const [toDoList, setToDoList] = useState([]);
   useEffect(() => {
     setIsUpdated(false);
     if (isLogin) {

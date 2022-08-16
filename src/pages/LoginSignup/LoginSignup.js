@@ -18,28 +18,17 @@ function LoginSignup(props) {
 
   const [isValidEmail, setIsValidEmail] = useState(false);
   const emailValidation = () => {
-    if (email.includes("@")) {
-      setIsValidEmail(true);
-    } else {
-      setIsValidEmail(false);
-    }
+    email.includes("@") ? setIsValidEmail(true) : setIsValidEmail(false);
   };
 
   const [isValidPw, setIsValidPw] = useState(false);
   const pwValidation = () => {
-    if (password.length >= 8) setIsValidPw(true);
-    else {
-      setIsValidPw(false);
-    }
+    password.length >= 8 ? setIsValidPw(true) : setIsValidPw(false);
   };
 
   const [loginValid, setLoginValid] = useState(false);
   const loginValidaion = () => {
-    if (isValidEmail && isValidPw) {
-      setLoginValid(true);
-    } else {
-      setLoginValid(false);
-    }
+    isValidEmail && isValidPw ? setLoginValid(true) : setLoginValid(false);
   };
 
   useEffect(() => {

@@ -4,7 +4,6 @@ import css from "./ToDoItem.module.scss";
 function ToDoItem(props) {
   const { id, toDo, isCompleted, setIsUpdated } = props;
   const token = localStorage.getItem("token");
-  const [update, setUpdate] = useState(false);
 
   const [newToDo, setNewToDo] = useState(toDo);
   const handleTodoInput = (e) => {
@@ -32,13 +31,11 @@ function ToDoItem(props) {
     });
   };
 
+  const [update, setUpdate] = useState(false);
   const updateBtn = () => {
-    if (!update) {
-      setUpdate(true);
-    } else {
-      updateTodo();
-    }
+    !update ? setUpdate(true) : updateTodo();
   };
+
   const cancelBtn = () => {
     setUpdate(false);
     setNewToDo(toDo);
