@@ -78,14 +78,12 @@ function TodoItem(props) {
         {update ? (
           <input
             type="checkbox"
-            value={isCompletedTodo}
             checked={isCompletedTodo}
             onChange={handleCompletedInput}
           />
         ) : (
           <input
             type="checkbox"
-            value={isCompletedTodo}
             checked={isCompletedTodo}
             readOnly
             style={{ cursor: "not-allowed" }}
