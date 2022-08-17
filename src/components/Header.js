@@ -3,9 +3,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import css from "./Header.module.scss";
 
 function Header() {
-  const navigate = useNavigate();
   const location = useLocation();
   const isTodo = location.pathname === "/todo";
+
+  const navigate = useNavigate();
   const logout = () => {
     navigate("/");
     localStorage.removeItem("token");
