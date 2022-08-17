@@ -1,22 +1,22 @@
-.container {
-  width: 700px;
-  max-width: 500px;
-  margin: auto;
+@mixin size($w: auto, $h: auto, $m: auto, $p: auto) {
+  width: $w;
+  height: $h;
+  margin: $m;
+  padding: $p;
+}
 
+.container {
+  @include size(700px, $m: auto);
+  max-width: 500px;
   .input {
-    width: 300px;
-    height: 20px;
-    padding: 4px;
-    margin: 4px;
+    @include size(300px, 20px, 4px, 4px);
     outline: none;
   }
   .btn {
+    @include size(50px, 25px, 30px);
     color: white;
     border: 0;
     background-color: lightblue;
-    height: 25px;
-    margin: 30px;
-    width: 50px;
     border-radius: 10px;
     cursor: pointer;
   }

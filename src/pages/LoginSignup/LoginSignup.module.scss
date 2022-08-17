@@ -1,11 +1,17 @@
+@mixin size($w: auto, $h: auto, $m: auto, $p: auto) {
+  width: $w;
+  height: $h;
+  margin: $m;
+  padding: $p;
+  min-width: 300px;
+}
+
 .container {
   width: 100vw;
   .email,
   .password {
+    @include size(30vw, $m: 30px auto);
     position: relative;
-    width: 30vw;
-    min-width: 300px;
-    margin: 30px auto;
     label {
       display: block;
       margin: 10px 4px;
@@ -13,23 +19,18 @@
     }
   }
   .input {
-    min-width: 300px;
-    width: 29vw;
+    @include size(29vw, $p: 4px);
     outline: 0;
-    padding: 4px;
     border: 0;
     border-bottom: 1px solid gray;
   }
   button {
+    @include size(30vw, 50px, 30px auto);
     display: block;
-    min-width: 300px;
-    width: 30vw;
-    height: 50px;
     border-radius: 10px;
     border: 0;
     background-color: lightblue;
     color: white;
-    margin: 30px auto;
     cursor: pointer;
   }
   .disabled {
