@@ -52,7 +52,7 @@ function Todo() {
 
   return (
     <div className={css.container}>
-      <div>
+      <div className={css.inputWrap}>
         <input className={css.input} value={todo} onChange={handleTodo} />
         <button className={css.btn} onClick={createTodo}>
           추가

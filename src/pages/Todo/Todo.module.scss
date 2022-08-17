@@ -8,6 +8,11 @@
 .container {
   @include size(700px, $m: auto);
   max-width: 500px;
+  .inputWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .input {
     @include size(300px, 20px, 4px, 4px);
     outline: none;
