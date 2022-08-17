@@ -90,7 +90,7 @@ function TodoItem(props) {
           />
         )}
         <button className={css.updateBtn} onClick={updateBtn}>
-          수정
+          {update ? "제출" : "수정"}
         </button>
         {update && (
           <button className={css.cancelBtn} onClick={cancelBtn}>
