@@ -61,7 +61,11 @@ function TodoItem(props) {
   return (
     <div className={css.container}>
       <li className={css.list}>
-        {!update && todo}
+        <span
+          className={`${css.text} ${update ? css.inline : css.inlineBlock}`}
+        >
+          {!update && todo}
+        </span>
         {update && (
           <input
             className={css.input}

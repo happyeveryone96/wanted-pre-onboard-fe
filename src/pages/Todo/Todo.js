@@ -52,10 +52,13 @@ function Todo() {
 
   return (
     <div className={css.container}>
-      <input className={css.input} value={todo} onChange={handleTodo} />
-      <button className={css.btn} onClick={createTodo}>
-        추가
-      </button>
+      <div>
+        <input className={css.input} value={todo} onChange={handleTodo} />
+        <button className={css.btn} onClick={createTodo}>
+          추가
+        </button>
+      </div>
+
       {todoList.map((todo) => {
         return (
           <TodoItem
