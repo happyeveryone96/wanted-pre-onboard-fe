@@ -1,11 +1,14 @@
 # wanted-pre-onboard-fe
 
 <h2>프로젝트 실행 방법</h2>
+
 <br>
 1. git clone
+
 ```
 git clone '깃허브 주소'
 ```
+
 <br>
 2. 버전 및 라이브러리 설치
 
