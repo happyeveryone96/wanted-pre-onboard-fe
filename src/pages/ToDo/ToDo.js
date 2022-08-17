@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ToDoItem from "./ToDoItem";
-import css from "./ToDo.module.scss";
+import TodoItem from "./TodoItem";
+import css from "./Todo.module.scss";
 
 function ToDo() {
-  const [toDo, setToDo] = useState("");
-  const handleToDo = (e) => {
-    setToDo(e.target.value);
-  };
+  const [todo, setTodo] = useState("");
+  const handleTodo = (e) => setTodo(e.target.value);
 
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -17,7 +15,7 @@ function ToDo() {
 
   const [isUpdated, setIsUpdated] = useState(false);
   const createTodo = () => {
-    if (toDo !== "") {
+    if (todo !== "") {
       fetch(
         "https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/todos",
         {
@@ -26,18 +24,16 @@ function ToDo() {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({
-            todo: toDo,
-          }),
+          body: JSON.stringify({ todo }),
         }
       )
         .then((res) => res.json())
         .then(setIsUpdated(true))
-        .then(setToDo(""));
+        .then(setTodo(""));
     } else alert("할 일을 입력해주세요!");
   };
 
-  const [toDoList, setToDoList] = useState([]);
+  const [todoList, setTodoList] = useState([]);
   useEffect(() => {
     setIsUpdated(false);
     fetch(
@@ -51,24 +47,22 @@ function ToDo() {
       }
     )
       .then((res) => res.json())
-      .then((res) => {
-        setToDoList(res);
-      });
+      .then((res) => setTodoList(res));
   }, [isUpdated]);
 
   return (
     <div className={css.container}>
-      <input className={css.input} value={toDo} onChange={handleToDo} />
+      <input className={css.input} value={todo} onChange={handleTodo} />
       <button className={css.btn} onClick={createTodo}>
         추가
       </button>
-      {toDoList.map((toDo) => {
+      {todoList.map((todo) => {
         return (
-          <ToDoItem
-            key={toDo.id}
-            id={toDo.id}
-            toDo={toDo.todo}
-            isCompleted={toDo.isCompleted}
+          <TodoItem
+            key={todo.id}
+            id={todo.id}
+            todo={todo.todo}
+            isCompleted={todo.isCompleted}
             setIsUpdated={setIsUpdated}
           />
         );

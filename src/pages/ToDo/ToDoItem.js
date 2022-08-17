@@ -1,19 +1,15 @@
 import React, { useState } from "react";
-import css from "./ToDoItem.module.scss";
+import css from "./TodoItem.module.scss";
 
 function ToDoItem(props) {
-  const { id, toDo, isCompleted, setIsUpdated } = props;
+  const { id, todo, isCompleted, setIsUpdated } = props;
   const token = localStorage.getItem("token");
 
-  const [newToDo, setNewToDo] = useState(toDo);
-  const handleTodoInput = (e) => {
-    setNewToDo(e.target.value);
-  };
+  const [newTodo, setNewTodo] = useState(todo);
+  const handleTodoInput = (e) => setNewTodo(e.target.value);
 
   const [isCompletedTodo, setIsCompletedTodo] = useState(isCompleted);
-  const handleCompletedInput = () => {
-    setIsCompletedTodo(!isCompletedTodo);
-  };
+  const handleCompletedInput = () => setIsCompletedTodo(!isCompletedTodo);
 
   const deleteTodo = () => {
     fetch(
@@ -36,7 +32,7 @@ function ToDoItem(props) {
 
   const cancelBtn = () => {
     setUpdate(false);
-    setNewToDo(toDo);
+    setNewTodo(todo);
     setIsCompletedTodo(isCompleted);
   };
 
@@ -50,7 +46,7 @@ function ToDoItem(props) {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          todo: newToDo,
+          todo: newTodo,
           isCompleted: isCompletedTodo,
         }),
       }
@@ -65,11 +61,11 @@ function ToDoItem(props) {
   return (
     <div className={css.container}>
       <li className={css.list}>
-        {!update && toDo}
+        {!update && todo}
         {update && (
           <input
             className={css.input}
-            value={newToDo}
+            value={newTodo}
             onChange={handleTodoInput}
           />
         )}
