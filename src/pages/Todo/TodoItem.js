@@ -37,25 +37,27 @@ function TodoItem(props) {
   };
 
   const updateTodo = () => {
-    fetch(
-      `https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/todos/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          todo: newTodo,
-          isCompleted: isCompletedTodo,
-        }),
-      }
-    ).then((res) => {
-      if (res.status === 200) {
-        setIsUpdated(true);
-        setUpdate(false);
-      }
-    });
+    if (newTodo !== "") {
+      fetch(
+        `https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/todos/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            todo: newTodo,
+            isCompleted: isCompletedTodo,
+          }),
+        }
+      ).then((res) => {
+        if (res.status === 200) {
+          setIsUpdated(true);
+          setUpdate(false);
+        }
+      });
+    } else alert("할 일을 입력해주세요!");
   };
 
   return (
