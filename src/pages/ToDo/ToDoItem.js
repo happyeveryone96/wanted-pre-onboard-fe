@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import css from "./TodoItem.module.scss";
 
-function ToDoItem(props) {
+function TodoItem(props) {
   const { id, todo, isCompleted, setIsUpdated } = props;
   const token = localStorage.getItem("token");
 
@@ -101,4 +101,4 @@ function ToDoItem(props) {
   );
 }
 
-export default ToDoItem;
+export default TodoItem;

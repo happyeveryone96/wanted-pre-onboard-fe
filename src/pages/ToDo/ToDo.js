@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import TodoItem from "./TodoItem";
 import css from "./Todo.module.scss";
 
-function ToDo() {
+function Todo() {
   const [todo, setTodo] = useState("");
   const handleTodo = (e) => setTodo(e.target.value);
 
@@ -71,4 +71,4 @@ function ToDo() {
   );
 }
 
-export default ToDo;
+export default Todo;
