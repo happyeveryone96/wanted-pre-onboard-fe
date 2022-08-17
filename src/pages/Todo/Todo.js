@@ -58,7 +58,6 @@ function Todo() {
           추가
         </button>
       </div>
-
       {todoList.map((todo) => {
         return (
           <TodoItem

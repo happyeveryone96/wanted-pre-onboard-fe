@@ -27,7 +27,7 @@ function TodoItem(props) {
 
   const [update, setUpdate] = useState(false);
   const updateBtn = () => {
-    !update ? setUpdate(true) : updateTodo();
+    update ? updateTodo() : setUpdate(true);
   };
 
   const cancelBtn = () => {
