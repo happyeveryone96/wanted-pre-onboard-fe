@@ -25,9 +25,7 @@ function ToDoItem(props) {
         },
       }
     ).then((res) => {
-      if (res.status === 204) {
-        setIsUpdated(true);
-      }
+      if (res.status === 204) setIsUpdated(true);
     });
   };
 

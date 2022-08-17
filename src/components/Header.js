@@ -1,23 +1,15 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import css from "./Header.module.scss";
 
-function Header(props) {
-  const { isLogin, setIsLogin } = props;
+function Header() {
+  const navigate = useNavigate();
   const location = useLocation();
   const isTodo = location.pathname === "/todo";
   const logout = () => {
-    setIsLogin(false);
+    navigate("/");
     localStorage.removeItem("token");
   };
-
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setIsLogin(true);
-    } else {
-      setIsLogin(false);
-    }
-  }, [isLogin]);
 
   return (
     <div className={css.container}>

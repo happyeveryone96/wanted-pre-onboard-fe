@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import css from "./LoginSignup.module.scss";
 
-function LoginSignup(props) {
-  const { setIsLogin } = props;
+function LoginSignup() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -76,20 +75,14 @@ function LoginSignup(props) {
     )
       .then((res) => res.json())
       .then((res) => {
-        if (res.access_token) {
-          alert("회원가입 성공!");
-        } else {
-          alert("회원가입 실패!");
-        }
+        if (res.access_token) alert("회원가입 성공!");
+        else alert("회원가입 실패!");
       });
   };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token !== null) {
-      setIsLogin(true);
-      navigate("/todo");
-    }
+    if (token !== null) navigate("/todo");
   }, []);
 
   return (

@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ToDoItem from "./ToDoItem";
 import css from "./ToDo.module.scss";
 
-function ToDo(props) {
-  const { isLogin } = props;
-
+function ToDo() {
   const [toDo, setToDo] = useState("");
   const handleToDo = (e) => {
     setToDo(e.target.value);
@@ -14,10 +12,8 @@ function ToDo(props) {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
   useEffect(() => {
-    if (!isLogin || token === null) {
-      navigate("/");
-    }
-  }, [isLogin]);
+    if (token === null) navigate("/");
+  }, []);
 
   const [isUpdated, setIsUpdated] = useState(false);
   const createTodo = () => {
@@ -38,30 +34,26 @@ function ToDo(props) {
         .then((res) => res.json())
         .then(setIsUpdated(true))
         .then(setToDo(""));
-    } else {
-      alert("할 일을 입력해주세요!");
-    }
+    } else alert("할 일을 입력해주세요!");
   };
 
   const [toDoList, setToDoList] = useState([]);
   useEffect(() => {
     setIsUpdated(false);
-    if (isLogin) {
-      fetch(
-        "https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/todos",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-        .then((res) => res.json())
-        .then((res) => {
-          setToDoList(res);
-        });
-    }
+    fetch(
+      "https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/todos",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        setToDoList(res);
+      });
   }, [isUpdated]);
 
   return (
