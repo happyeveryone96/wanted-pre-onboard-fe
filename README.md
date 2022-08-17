@@ -1,19 +1,19 @@
 # wanted-pre-onboard-fe
 
 <h2>프로젝트 실행 방법</h2>
-
+<br>
 1. git clone
-
 ```
 git clone '깃허브 주소'
 ```
-
+<br>
 2. 버전 및 라이브러리 설치
 
 ```
 npm install
 ```
 
+<br>
 3. 프로젝트 실행
 
 ```
@@ -23,7 +23,7 @@ npm start
 <br><br>
 
 <h2>데모 영상</h2>
-<img src="https://user-images.githubusercontent.com/66675699/184170190-1c2f2ad9-ad54-4126-9e3c-89289487ecb1.gif" alt="데모 영상"/>
+<img src="https://user-images.githubusercontent.com/66675699/185061970-f208b328-bbfb-42fc-a13f-92b1cba98556.gif" alt="데모 영상"/>
 
 <br><br>
 
@@ -46,4 +46,4 @@ npm start
   <br><br>
 
 3. 로그아웃 (추가 구현)<br>
-   <img width="300" src="https://user-images.githubusercontent.com/66675699/184171716-24e3aefb-86ed-4e22-a3d2-5e054b19dadb.gif" alt="로그아웃"/>
+   <img width="300" src="https://user-images.githubusercontent.com/66675699/185062791-ba4277df-3b71-4684-a3c3-d6e58fe4086c.gif" alt="로그아웃"/>
