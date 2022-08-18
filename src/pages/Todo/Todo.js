@@ -26,10 +26,12 @@ function Todo() {
           },
           body: JSON.stringify({ todo }),
         }
-      )
-        .then((res) => res.json())
-        .then(setIsUpdated(true))
-        .then(setTodo(""));
+      ).then((res) => {
+        if (res.status === 201) {
+          setIsUpdated(true);
+          setTodo("");
+        }
+      });
     } else alert("할 일을 입력해주세요!");
   };
 
@@ -46,8 +48,12 @@ function Todo() {
         },
       }
     )
-      .then((res) => res.json())
-      .then((res) => setTodoList(res));
+      .then((res) => {
+        if (res.status === 200) return res.json();
+      })
+      .then((res) => {
+        setTodoList(res);
+      });
   }, [isUpdated]);
 
   return (
